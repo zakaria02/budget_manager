@@ -6,6 +6,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'feature/bloc/app_bloc_observer.dart';
 import 'feature/bloc/auth/auth_bloc.dart';
 import 'business/auth/repository/auth_repository.dart';
+import 'home_page/feature/bloc/navigation/navigation_cubit.dart';
 import 'home_page/home_page.dart';
 
 void main() async {
@@ -34,6 +35,9 @@ class BudgetApp extends StatelessWidget {
         ),
         BlocProvider<DatePickerCubit>(
           create: (context) => DatePickerCubit(),
+        ),
+        BlocProvider<HomePageNavCubit>(
+          create: (context) => HomePageNavCubit(),
         )
       ],
       child: MaterialApp(
