@@ -1,3 +1,4 @@
+import 'package:budget_manager/home_page/components/components.dart';
 import 'package:flutter/material.dart';
 
 class HomePageBody extends StatelessWidget {
@@ -5,6 +6,8 @@ class HomePageBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold();
+    return ListView(
+      children: const [HomePageAppBar()],
+    );
   }
 }
