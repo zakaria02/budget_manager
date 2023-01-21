@@ -1,4 +1,4 @@
-import 'package:budget_manager/home_page/components/components.dart';
+import 'package:budget_manager/home_page/feature/components/components.dart';
 import 'package:flutter/material.dart';
 
 class HomePageBody extends StatelessWidget {

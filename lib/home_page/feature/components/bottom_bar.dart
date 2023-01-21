@@ -2,7 +2,7 @@ import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.da
 import 'package:flutter/material.dart';
 import 'package:unicons/unicons.dart';
 
-import '../../styles/styles.dart';
+import '../../../styles/styles.dart';
 
 class HomePageBottomBar extends StatelessWidget {
   final List<IconData> iconItems = [
