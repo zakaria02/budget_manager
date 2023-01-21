@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:unicons/unicons.dart';
 
 import '../../../styles/styles.dart';
-import '../../../summary_page/summary_page.dart';
 
 class HomePageBottomBar extends StatelessWidget {
   final List<IconData> iconItems = [
