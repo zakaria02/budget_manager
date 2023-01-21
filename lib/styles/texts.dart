@@ -25,6 +25,14 @@ TextStyle appBarButton = TextStyle(
   fontWeight: FontWeight.w600,
 );
 
+const TextStyle h1 = TextStyle(
+  fontFamily: "Quicksand",
+  fontSize: 32,
+  fontWeight: FontWeight.w600,
+  color: Colors.black,
+  letterSpacing: 2,
+);
+
 const TextStyle h2 = TextStyle(
   fontFamily: "Quicksand",
   fontSize: 14,
