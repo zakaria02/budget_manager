@@ -40,5 +40,12 @@ const TextStyle h2 = TextStyle(
   fontWeight: FontWeight.w500,
 );
 
+const TextStyle textButton = TextStyle(
+  fontFamily: "Quicksand",
+  fontSize: 14,
+  color: Colors.black,
+  letterSpacing: 2,
+);
+
 const TextStyle value =
     TextStyle(fontFamily: "Poppins", fontSize: 18, color: black);
