@@ -39,6 +39,7 @@ dependencies:
   flutter_bloc: ^8.1.1
   unicons: ^2.1.0 # icon's link : https://iconscout.com/unicons/explore/line
   animated_bottom_navigation_bar: ^1.1.0+1
+  flutter_dash: ^1.0.0
 
 dev_dependencies:
   flutter_test:
