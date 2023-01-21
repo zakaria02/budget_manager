@@ -11,7 +11,8 @@ import '../../../extensions/date_extension.dart';
 class DatePicker extends StatelessWidget {
   const DatePicker({super.key});
 
-  void _showDatePciker(BuildContext context) async {
+  void _showDatePciker(
+      BuildContext context, DatePickerCubit datePickerCubit) async {
     final DateTime? picked = await showDatePicker(
       context: context,
       initialDate: DateTime.now(),
@@ -21,7 +22,7 @@ class DatePicker extends StatelessWidget {
       fieldHintText: 'Month/Date/Year',
     );
     if (picked != null) {
-      log(picked.toString());
+      datePickerCubit.setDate(picked);
     }
   }
 
@@ -48,6 +49,7 @@ class DatePicker extends StatelessWidget {
             TextButton(
               onPressed: () => _showDatePciker(
                 context,
+                BlocProvider.of<DatePickerCubit>(context),
               ),
               style: TextButton.styleFrom(
                 surfaceTintColor: Colors.grey,
