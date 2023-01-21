@@ -15,7 +15,7 @@ class AuthenticationService {
     });
   }
 
-  Future<UserCredential?> signIn(UserDto user) async {
+  Future<UserCredential?> signIn() async {
     try {
       UserCredential userCredential =
           await FirebaseAuth.instance.signInAnonymously();

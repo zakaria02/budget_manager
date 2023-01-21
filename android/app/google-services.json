@@ -31,10 +31,10 @@
               "client_type": 3
             },
             {
-              "client_id": "690474689860-gfl9ir6dfriqh3p8o807512s5jjgfom6.apps.googleusercontent.com",
+              "client_id": "690474689860-2a4sd304blrkrneroav2q0jequ4lr0ck.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.example.gestionBudget"
+                "bundle_id": "com.example.budgetManager"
               }
             }
           ]
@@ -67,10 +67,10 @@
               "client_type": 3
             },
             {
-              "client_id": "690474689860-gfl9ir6dfriqh3p8o807512s5jjgfom6.apps.googleusercontent.com",
+              "client_id": "690474689860-2a4sd304blrkrneroav2q0jequ4lr0ck.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.example.gestionBudget"
+                "bundle_id": "com.example.budgetManager"
               }
             }
           ]

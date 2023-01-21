@@ -1,8 +1,7 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../dtos/user_dto.dart';
-import '../repository/auth_repository.dart';
+import '../../../business/auth/business_auth.dart';
 
 part 'auth_event.dart';
 part 'auth_state.dart';
@@ -22,7 +21,13 @@ class AuthenticationBloc
         if (user.uid != "uid") {
           emit(const AuthenticationSuccess());
         } else {
-          emit(AuthenticationFailure());
+          await _authenticationRepository.signIn();
+          user = await _authenticationRepository.getCurrentUser().first;
+          if (user.uid != "uid") {
+            emit(const AuthenticationSuccess());
+          } else {
+            emit(AuthenticationFailure());
+          }
         }
       } else if (event is AuthenticationSignedOut) {
         await _authenticationRepository.signOut();

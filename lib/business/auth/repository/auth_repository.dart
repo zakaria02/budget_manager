@@ -13,9 +13,9 @@ class AuthenticationRepositoryImpl implements AuthenticationRepository {
   }
 
   @override
-  Future<UserCredential?> signIn(UserDto user) {
+  Future<UserCredential?> signIn() {
     try {
-      return service.signIn(user);
+      return service.signIn();
     } on FirebaseAuthException catch (e) {
       throw FirebaseAuthException(code: e.code, message: e.message);
     }
@@ -29,6 +29,6 @@ class AuthenticationRepositoryImpl implements AuthenticationRepository {
 
 abstract class AuthenticationRepository {
   Stream<UserDto> getCurrentUser();
-  Future<UserCredential?> signIn(UserDto user);
+  Future<UserCredential?> signIn();
   Future<void> signOut();
 }
