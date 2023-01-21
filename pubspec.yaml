@@ -40,6 +40,7 @@ dependencies:
   unicons: ^2.1.0 # icon's link : https://iconscout.com/unicons/explore/line
   animated_bottom_navigation_bar: ^1.1.0+1
   flutter_dash: ^1.0.0
+  dotted_border: ^2.0.0+3
 
 dev_dependencies:
   flutter_test:
