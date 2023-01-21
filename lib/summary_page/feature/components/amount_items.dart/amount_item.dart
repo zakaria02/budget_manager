@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dash/flutter_dash.dart';
 
-import '../../../../styles/styles.dart';
+import '../../../../../styles/styles.dart';
 import '../../models/amount.dart';
 
 class AmountItem extends StatelessWidget {

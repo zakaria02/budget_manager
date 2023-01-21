@@ -2,7 +2,7 @@ import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:unicons/unicons.dart';
 
-import '../../../styles/styles.dart';
+import '../../../../styles/styles.dart';
 
 class NoData extends StatelessWidget {
   final bool isIncome;
