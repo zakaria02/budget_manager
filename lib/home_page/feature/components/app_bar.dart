@@ -9,26 +9,29 @@ class HomePageAppBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      mainAxisSize: MainAxisSize.max,
-      children: [
-        IconButton(
-          onPressed: () {},
-          icon: const Icon(
-            UniconsLine.bars,
+    return Container(
+      color: white,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        mainAxisSize: MainAxisSize.max,
+        children: [
+          IconButton(
+            onPressed: () {},
+            icon: const Icon(
+              UniconsLine.bars,
+            ),
+            color: black,
           ),
-          color: black,
-        ),
-        const DatePicker(),
-        IconButton(
-          onPressed: () {},
-          icon: const Icon(
-            UniconsLine.setting,
+          const DatePicker(),
+          IconButton(
+            onPressed: () {},
+            icon: const Icon(
+              UniconsLine.setting,
+            ),
+            color: black,
           ),
-          color: black,
-        ),
-      ],
+        ],
+      ),
     );
   }
 }
