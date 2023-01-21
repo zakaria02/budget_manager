@@ -6,7 +6,12 @@ class HomePageFAB extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FloatingActionButton(
-      onPressed: () {},
+      onPressed: () {
+        Navigator.pushNamed(
+          context,
+          '/addTransaction',
+        );
+      },
       backgroundColor: Colors.pink,
       child: const Icon(
         Icons.add,

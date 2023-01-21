@@ -28,7 +28,12 @@ class NoData extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               MaterialButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushNamed(
+                    context,
+                    '/addTransaction',
+                  );
+                },
                 color: isIncome ? incomeColor : expensesColor,
                 textColor: Colors.white,
                 shape: const CircleBorder(),

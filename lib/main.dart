@@ -8,6 +8,7 @@ import 'feature/bloc/auth/auth_bloc.dart';
 import 'business/auth/repository/auth_repository.dart';
 import 'home_page/feature/bloc/navigation/navigation_cubit.dart';
 import 'home_page/home_page.dart';
+import 'add_transaction_page/feature/add_tansaction_page_view.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -47,6 +48,7 @@ class BudgetApp extends StatelessWidget {
         initialRoute: "/",
         routes: {
           "/": (context) => const HomePageView(),
+          "/addTransaction": (context) => const AddTransactionView(),
         },
       ),
     );
