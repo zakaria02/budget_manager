@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import '../../feature/bloc/auth/auth_bloc.dart';
 import 'components/components.dart';
 
 class HomePageView extends StatelessWidget {
@@ -6,11 +8,16 @@ class HomePageView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: const HomePageBody(),
-      bottomNavigationBar: HomePageBottomBar(),
-      floatingActionButton: const HomePageFAB(),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+    return BlocBuilder<AuthenticationBloc, AuthenticationState>(
+      builder: (context, state) {
+        return Scaffold(
+          body: const HomePageBody(),
+          bottomNavigationBar: HomePageBottomBar(),
+          floatingActionButton: const HomePageFAB(),
+          floatingActionButtonLocation:
+              FloatingActionButtonLocation.centerDocked,
+        );
+      },
     );
   }
 }

@@ -1,0 +1,82 @@
+{
+  "project_info": {
+    "project_number": "690474689860",
+    "project_id": "budget-manager-df134",
+    "storage_bucket": "budget-manager-df134.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:690474689860:android:04b1eb6333dc9f1c592311",
+        "android_client_info": {
+          "package_name": "com.example.budget_manager"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "690474689860-a29ti4ipsqcbfinu8i8p4rsgvcj8uq2c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCN73uAZ7yfSeakDdawMardz-bP94AMdfk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "690474689860-a29ti4ipsqcbfinu8i8p4rsgvcj8uq2c.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "690474689860-2a4sd304blrkrneroav2q0jequ4lr0ck.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.budgetManager"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:690474689860:android:1ba47ff178efec05592311",
+        "android_client_info": {
+          "package_name": "com.example.gestion_budget"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "690474689860-a29ti4ipsqcbfinu8i8p4rsgvcj8uq2c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCN73uAZ7yfSeakDdawMardz-bP94AMdfk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "690474689860-a29ti4ipsqcbfinu8i8p4rsgvcj8uq2c.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "690474689860-2a4sd304blrkrneroav2q0jequ4lr0ck.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.budgetManager"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
