@@ -16,14 +16,21 @@ class BudgetApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: ThemeData(
-        primarySwatch: Colors.pink,
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider<DatePickerCubit>(
+          create: (context) => DatePickerCubit(),
+        )
+      ],
+      child: MaterialApp(
+        theme: ThemeData(
+          primarySwatch: Colors.pink,
+        ),
+        initialRoute: "/",
+        routes: {
+          "/": (context) => const HomePageView(),
+        },
       ),
-      initialRoute: "/",
-      routes: {
-        "/": (context) => const HomePageView(),
-      },
     );
   }
 }
