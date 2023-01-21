@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../styles/styles.dart';
+import '../../../styles/styles.dart';
 import 'amount_items.dart/amount_items_list.dart';
 import 'no_data.dart';
 
