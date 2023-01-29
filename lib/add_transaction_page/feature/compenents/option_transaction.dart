@@ -6,12 +6,14 @@ class OptionTransaction extends StatelessWidget {
   final String title;
   final String data;
   final bool activeData;
+  final VoidCallback onPress;
 
   const OptionTransaction({
     super.key,
     required this.title,
     required this.data,
     this.activeData = true,
+    required this.onPress,
   });
 
   @override
@@ -19,7 +21,7 @@ class OptionTransaction extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(top: 5),
       child: GestureDetector(
-        onTap: () {},
+        onTap: onPress,
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [

@@ -9,6 +9,7 @@ import 'business/auth/repository/auth_repository.dart';
 import 'home_page/feature/bloc/navigation/navigation_cubit.dart';
 import 'home_page/home_page.dart';
 import 'add_transaction_page/feature/add_tansaction_page_view.dart';
+import 'add_transaction_page/feature/bloc/bloc.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -39,7 +40,13 @@ class BudgetApp extends StatelessWidget {
         ),
         BlocProvider<HomePageNavCubit>(
           create: (context) => HomePageNavCubit(),
-        )
+        ),
+        BlocProvider<AddTransactionBloc>(
+          create: (context) => AddTransactionBloc(),
+        ),
+        BlocProvider<BottomSheetCubit>(
+          create: (context) => BottomSheetCubit(),
+        ),
       ],
       child: MaterialApp(
         theme: ThemeData(

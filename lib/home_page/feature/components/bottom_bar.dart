@@ -30,9 +30,9 @@ class HomePageBottomBar extends StatelessWidget {
           iconSize: 25,
           rightCornerRadius: 10,
           onTap: (index) {
-            BlocProvider.of<HomePageNavCubit>(context).setPage(
-              index == 0 ? NavbarItem.summary : NavbarItem.details,
-            );
+            context.read<HomePageNavCubit>().setPage(
+                  index == 0 ? NavbarItem.summary : NavbarItem.details,
+                );
           },
         );
       },

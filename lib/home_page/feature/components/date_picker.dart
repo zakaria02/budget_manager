@@ -1,3 +1,4 @@
+import 'package:budget_manager/utils/functions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:unicons/unicons.dart';
@@ -10,46 +11,34 @@ import '../../../extensions/date_extension.dart';
 class DatePicker extends StatelessWidget {
   const DatePicker({super.key});
 
-  void _showDatePciker(
-      BuildContext context, DatePickerCubit datePickerCubit) async {
-    final DateTime? picked = await showDatePicker(
-      context: context,
-      initialDate: DateTime.now(),
-      firstDate: minDate,
-      lastDate: maxDate,
-      fieldLabelText: "Pick Date",
-      fieldHintText: 'Month/Date/Year',
-    );
-    if (picked != null) {
-      datePickerCubit.setDate(picked);
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<DatePickerCubit, DatePickerState>(
       builder: (context, datePickerState) {
+        final DatePickerCubit datePickerCubit = context.read<DatePickerCubit>();
         return Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           mainAxisSize: MainAxisSize.min,
           children: [
             IconButton(
-              onPressed: datePickerState.budgetDate.difference(minDate).inDays >
-                      30
-                  ? () {
-                      BlocProvider.of<DatePickerCubit>(context).subtractMonth();
-                    }
-                  : null,
+              onPressed:
+                  datePickerState.budgetDate.difference(minDate).inDays > 30
+                      ? () {
+                          datePickerCubit.subtractMonth();
+                        }
+                      : null,
               icon: const Icon(
                 UniconsLine.angle_left_b,
               ),
               color: black,
             ),
             TextButton(
-              onPressed: () => _showDatePciker(
-                context,
-                BlocProvider.of<DatePickerCubit>(context),
-              ),
+              onPressed: () async {
+                DateTime? selectedDate = await showMyDatePciker(context);
+                if (selectedDate != null) {
+                  datePickerCubit.setDate(selectedDate);
+                }
+              },
               style: TextButton.styleFrom(
                 surfaceTintColor: Colors.grey,
               ),
@@ -62,7 +51,7 @@ class DatePicker extends StatelessWidget {
               onPressed:
                   maxDate.difference(datePickerState.budgetDate).inDays > 30
                       ? () {
-                          BlocProvider.of<DatePickerCubit>(context).addMonth();
+                          datePickerCubit.addMonth();
                         }
                       : null,
               icon: const Icon(

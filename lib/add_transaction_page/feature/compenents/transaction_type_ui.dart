@@ -3,8 +3,8 @@ import '../../../styles/styles.dart';
 import 'transaction_outlined_button.dart';
 import 'package:unicons/unicons.dart';
 
-class TransactionType extends StatelessWidget {
-  const TransactionType({super.key});
+class TransactionTypeUI extends StatelessWidget {
+  const TransactionTypeUI({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -1,31 +1,36 @@
 import 'package:flutter/material.dart';
 
+import '../model/mapper/transaction_uio_dto_mappers.dart';
+import '../../business/dtos/dtos.dart';
 import '../../../styles/styles.dart';
+import '../model/transaction_uio.dart';
 import 'app_bar.dart';
 import 'options_list_transaction.dart';
-import 'transaction_type.dart';
+import 'transaction_type_ui.dart';
 
 class AddTransactionBody extends StatelessWidget {
-  const AddTransactionBody({super.key});
+  AddTransactionBody({super.key});
+
+  final TransactionUIO transactionUIO = transactionDtoMock.toTransactionUIO();
 
   @override
   Widget build(BuildContext context) {
     return ListView(
-      children: const [
-        AddTransactionAppBar(),
-        SizedBox(
+      children: [
+        const AddTransactionAppBar(),
+        const SizedBox(
           height: 20,
         ),
-        TransactionType(),
-        SizedBox(
+        const TransactionTypeUI(),
+        const SizedBox(
           height: 20,
         ),
         Text(
-          "\$0,00",
+          "\$${transactionUIO.amount}",
           style: h1,
           textAlign: TextAlign.center,
         ),
-        SizedBox(
+        const SizedBox(
           height: 20,
         ),
         OptionsListTransaction(),

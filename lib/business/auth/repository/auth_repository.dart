@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 
 import '../dtos/user_dto.dart';
-import '../data_source/auth_data_source.dart';
+import '../data_source/auth_data_service.dart';
 
 class AuthenticationRepositoryImpl implements AuthenticationRepository {
   // Remember to add DI for this one
