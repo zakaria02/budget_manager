@@ -1,4 +1,6 @@
+import 'package:budget_manager/styles/styles.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import 'colors.dart';
 
@@ -9,6 +11,8 @@ const TextStyle body = TextStyle(
   fontSize: 15,
   color: black,
 );
+
+TextStyle snackBarBody = body.copyWith(color: white);
 
 const TextStyle pageTitle = TextStyle(
   fontFamily: "Quicksand",
@@ -35,6 +39,13 @@ const TextStyle h1 = TextStyle(
 
 const TextStyle h2 = TextStyle(
   fontFamily: "Quicksand",
+  fontSize: 18,
+  color: black,
+  fontWeight: FontWeight.w500,
+);
+
+const TextStyle h3 = TextStyle(
+  fontFamily: "Quicksand",
   fontSize: 14,
   color: black,
   fontWeight: FontWeight.w500,
@@ -43,9 +54,22 @@ const TextStyle h2 = TextStyle(
 const TextStyle textButton = TextStyle(
   fontFamily: "Quicksand",
   fontSize: 14,
-  color: Colors.black,
+  color: black,
   letterSpacing: 2,
 );
 
 const TextStyle value =
     TextStyle(fontFamily: "Poppins", fontSize: 18, color: black);
+
+TextStyle bottomSheetTitle = GoogleFonts.roboto(
+  fontSize: 16,
+  color: black,
+  fontWeight: FontWeight.w700,
+  letterSpacing: 1.5,
+);
+
+TextStyle bottomSheetValue = GoogleFonts.roboto(
+  fontSize: 16,
+  color: black,
+  fontWeight: FontWeight.w400,
+);

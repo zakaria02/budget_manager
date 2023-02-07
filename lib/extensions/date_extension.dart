@@ -1,4 +1,4 @@
-extension DateTimeParing on DateTime {
+extension DateTimeParsing on DateTime {
   String stringDateTime() {
     return "${month.stringMonth()} $year";
   }

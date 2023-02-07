@@ -15,7 +15,7 @@ class AmountItem extends StatelessWidget {
       children: [
         Text(
           amount.name,
-          style: h2,
+          style: h3,
         ),
         const SizedBox(
           height: 3,
