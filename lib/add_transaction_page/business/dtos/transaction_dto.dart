@@ -1,3 +1,4 @@
+import '../../feature/model/mapper/transaction_uio_dto_mappers.dart';
 import 'category_dto.dart';
 
 class TransactionDTO {
@@ -18,6 +19,25 @@ class TransactionDTO {
     required this.repeatingType,
     required this.notes,
   });
+
+  Map<String, dynamic> toJson() => {
+        "transaction_type": type.toStringType(),
+        "amount": amount,
+        "category": category.toJson(),
+        "date": date,
+        "account_type": accountType,
+        "repeating_type": repeatingType.toStringRepeating(),
+        "notes": notes,
+      };
+
+  TransactionDTO.fromJson(Map<String, dynamic> json)
+      : type = json["transaction_type"].toString().toTransactionType(),
+        amount = json["amount"],
+        category = CategoryDTO.fromJson(json),
+        date = json["date"].toDate(),
+        accountType = json["account_type"],
+        repeatingType = json["repeating_type"].toString().toRepeatingType(),
+        notes = json["notes"];
 }
 
 enum TransactionType { income, expenses, unkownValue }

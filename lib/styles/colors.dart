@@ -8,3 +8,5 @@ const Color white = Color(0xFFFFFFFF);
 const Color grey = Colors.grey;
 const Color incomeColor = Color(0xFF88D49B);
 const Color expensesColor = Color(0xFFEE8880);
+const Color errorColor = Colors.redAccent;
+const Color successColor = Colors.green;

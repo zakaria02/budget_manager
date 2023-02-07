@@ -12,6 +12,8 @@ const TextStyle body = TextStyle(
   color: black,
 );
 
+TextStyle snackBarBody = body.copyWith(color: white);
+
 const TextStyle pageTitle = TextStyle(
   fontFamily: "Quicksand",
   fontSize: 17,

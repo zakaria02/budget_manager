@@ -7,6 +7,7 @@ class OptionTransaction extends StatelessWidget {
   final String data;
   final bool activeData;
   final VoidCallback onPress;
+  final bool enabled;
 
   const OptionTransaction({
     super.key,
@@ -14,14 +15,15 @@ class OptionTransaction extends StatelessWidget {
     required this.data,
     this.activeData = true,
     required this.onPress,
+    required this.enabled,
   });
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(top: 5),
-      child: GestureDetector(
-        onTap: onPress,
+    return InkWell(
+      onTap: enabled ? onPress : null,
+      child: Padding(
+        padding: const EdgeInsets.only(top: 17),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
@@ -49,7 +51,7 @@ class OptionTransaction extends StatelessWidget {
             ),
             const Divider(
               color: Colors.grey,
-              height: 30,
+              height: 17,
             ),
           ],
         ),

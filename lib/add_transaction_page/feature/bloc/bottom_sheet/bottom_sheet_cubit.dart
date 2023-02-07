@@ -9,14 +9,30 @@ class BottomSheetCubit extends Cubit<BottomSheetState> {
           const BottomSheetInitial(
             title: "No data found",
             values: [],
+            bottomSheetType: BottomSheetType.none,
           ),
         );
 
-  void openAccountBottomSheet(String title, List<String> values) {
-    emit(AccountBottomSheetOpened(title: title, values: values));
+  void openAccountBottomSheet(
+      String title, List<String> values, BottomSheetType bottomSheetType) {
+    emit(
+      AccountBottomSheetOpened(
+        title: title,
+        values: values,
+        bottomSheetType: bottomSheetType,
+      ),
+    );
   }
 
-  void openRepeatingBottomSheet(String title, List<String> values) {
-    emit(RepeatingBottomSheetOpened(title: title, values: values));
+  void openRepeatingBottomSheet(
+    String title,
+    List<String> values,
+    BottomSheetType bottomSheetType,
+  ) {
+    emit(RepeatingBottomSheetOpened(
+      title: title,
+      values: values,
+      bottomSheetType: bottomSheetType,
+    ));
   }
 }

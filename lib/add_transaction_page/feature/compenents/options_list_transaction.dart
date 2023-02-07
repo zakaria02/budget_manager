@@ -6,48 +6,57 @@ import '../model/mapper/transaction_uio_dto_mappers.dart';
 import 'package:flutter/material.dart';
 import '../../../styles/styles.dart';
 import '../../business/dtos/dtos.dart';
-import '../model/transaction_uio.dart';
 import 'bottomSheet/add_transaction_bottom_sheet.dart';
 import 'option_transaction.dart';
 
 class OptionsListTransaction extends StatelessWidget {
-  OptionsListTransaction({super.key});
-
-  final TransactionUIO transactionUIO = transactionDtoMock.toTransactionUIO();
+  const OptionsListTransaction({super.key});
 
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<AddTransactionBloc, AddTransactionState>(
-      builder: (context, state) {
+      builder: (context, addTransactionState) {
         return Padding(
           padding: const EdgeInsets.symmetric(horizontal: mainPadding),
           child: Column(
             children: [
               OptionTransaction(
                 title: "Category",
-                data: transactionUIO.category.name,
+                data: addTransactionState.transactionUIO.category.name,
                 activeData: true,
                 onPress: () {},
+                enabled: addTransactionState is! AddTransactionLoading,
               ),
               OptionTransaction(
                 title: "Date",
-                data: transactionUIO.date,
-                onPress: () => showMyDatePciker(context),
+                data: addTransactionState.transactionUIO.date,
+                onPress: () => showMyDatePciker(context).then(
+                  (picked) {
+                    if (picked != null) {
+                      context
+                          .read<AddTransactionBloc>()
+                          .add(DateChange(date: picked.toStringDate()));
+                    }
+                  },
+                ),
+                enabled: addTransactionState is! AddTransactionLoading,
               ),
               OptionTransaction(
                 title: "Account",
-                data: transactionUIO.accountType,
+                data: addTransactionState.transactionUIO.accountType,
                 onPress: () {
                   context.read<BottomSheetCubit>().openAccountBottomSheet(
                         "Account",
                         accountTypes,
+                        BottomSheetType.accountType,
                       );
                   showListModalBottomSheet(context);
                 },
+                enabled: addTransactionState is! AddTransactionLoading,
               ),
               OptionTransaction(
                 title: "Repeating",
-                data: transactionUIO.repeatingType,
+                data: addTransactionState.transactionUIO.repeatingType,
                 onPress: () {
                   context.read<BottomSheetCubit>().openRepeatingBottomSheet(
                         "Repeating",
@@ -55,12 +64,14 @@ class OptionsListTransaction extends StatelessWidget {
                             .map((repatingType) =>
                                 repatingType.toStringRepeating())
                             .toList(),
+                        BottomSheetType.repeating,
                       );
                   showListModalBottomSheet(context);
                 },
+                enabled: addTransactionState is! AddTransactionLoading,
               ),
               TextFormField(
-                initialValue: transactionUIO.notes,
+                initialValue: addTransactionState.transactionUIO.notes,
                 decoration: InputDecoration(
                   hintStyle: TextStyle(
                     color: Colors.grey[600],
@@ -74,6 +85,10 @@ class OptionsListTransaction extends StatelessWidget {
                   contentPadding: EdgeInsets.zero,
                 ),
                 keyboardType: TextInputType.text,
+                onChanged: (value) => context
+                    .read<AddTransactionBloc>()
+                    .add(NotesChange(notes: value)),
+                enabled: addTransactionState is! AddTransactionLoading,
               ),
             ],
           ),

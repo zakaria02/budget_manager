@@ -25,7 +25,7 @@ extension TransactionDtoMappers on TransactionDTO {
   TransactionUIO toTransactionUIO() {
     return TransactionUIO(
       type: type.toStringType(),
-      amount: amount,
+      amount: amount.toString(),
       category: category.toCategoryUIO(),
       date: date.toStringDate(),
       accountType: accountType,
@@ -95,7 +95,7 @@ extension TransactionUIOMappers on TransactionUIO {
   TransactionDTO toTransctionDTO() {
     return TransactionDTO(
       type: type.toTransactionType(),
-      amount: amount,
+      amount: amount.toStringAmount(),
       category: category.toCategoryDto(),
       date: date.toDateTime(),
       accountType: accountType,
@@ -117,9 +117,14 @@ extension TransactionStringsMappers on String {
     }
   }
 
+  double toStringAmount() {
+    double? amount = double.tryParse(this);
+    return amount ?? 0.0;
+  }
+
   RepeatingType toRepeatingType() {
     switch (toUpperCase()) {
-      case "NN":
+      case "NO":
         return RepeatingType.never;
       case "DAILY":
         return RepeatingType.daily;
@@ -142,9 +147,9 @@ extension TransactionStringsMappers on String {
     try {
       // Ex (Date to parse) : '23 Jan 2023'
       return DateTime(
-        int.parse(substring(7)),
+        int.parse(substring(6)),
         monthIndex,
-        int.parse(substring(0, 3)),
+        int.parse(substring(0, 2)),
       );
     } on Exception catch (e) {
       throw Exception(e);

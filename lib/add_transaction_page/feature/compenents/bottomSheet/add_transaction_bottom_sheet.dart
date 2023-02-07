@@ -33,6 +33,7 @@ class AddTrnsactionBottomSheet extends StatelessWidget {
               state.values
                   .map((value) => AddTransactionBottomSheetValue(
                         value: value,
+                        bottomSheetType: state.bottomSheetType,
                       ))
                   .toList(),
         );
@@ -60,18 +61,40 @@ class AddTransactionBottomSheetTitle extends StatelessWidget {
 }
 
 class AddTransactionBottomSheetValue extends StatelessWidget {
-  const AddTransactionBottomSheetValue({super.key, required this.value});
+  const AddTransactionBottomSheetValue({
+    super.key,
+    required this.value,
+    required this.bottomSheetType,
+  });
   final String value;
+  final BottomSheetType bottomSheetType;
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(innerPadding),
-      child: Text(
-        value,
-        maxLines: 1,
-        overflow: TextOverflow.ellipsis,
-        style: bottomSheetValue,
+    return InkWell(
+      onTap: () {
+        Navigator.of(context).pop();
+        if (bottomSheetType == BottomSheetType.accountType) {
+          context.read<AddTransactionBloc>().add(
+                AccountChange(account: value),
+              );
+        } else if (bottomSheetType == BottomSheetType.repeating) {
+          context.read<AddTransactionBloc>().add(
+                RepeatingChange(repeating: value),
+              );
+        }
+      },
+      child: Padding(
+        padding: const EdgeInsets.all(innerPadding),
+        child: SizedBox(
+          width: double.infinity,
+          child: Text(
+            value,
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
+            style: bottomSheetValue,
+          ),
+        ),
       ),
     );
   }
