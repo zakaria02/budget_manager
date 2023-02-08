@@ -1,5 +1,7 @@
+import 'package:budget_manager/add_transaction_page/feature/bloc/add_transaction/add_transaction_bloc.dart';
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:unicons/unicons.dart';
 
 import '../../../../styles/styles.dart';
@@ -29,6 +31,8 @@ class NoData extends StatelessWidget {
             children: [
               MaterialButton(
                 onPressed: () {
+                  BlocProvider.of<AddTransactionBloc>(context)
+                      .add(TypeChange(type: isIncome ? "income" : "expenses"));
                   Navigator.pushNamed(
                     context,
                     '/addTransaction',
