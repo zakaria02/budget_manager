@@ -1,3 +1,4 @@
+import 'package:budget_manager/feature/component/custom_text_editing_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -40,20 +41,22 @@ class AddTransactionBody extends StatelessWidget {
             const SizedBox(
               height: 20,
             ),
-            // TODO : Update amount UI & maybe input valdiation also
             TextFormField(
-              initialValue:
-                  addTransactionState.transactionUIO.amount.toString(),
               style: h1,
               textAlign: TextAlign.center,
               showCursor: false,
+              enableInteractiveSelection: false,
               decoration: const InputDecoration(
                 border: InputBorder.none,
               ),
               keyboardType: TextInputType.number,
-              onChanged: (value) => context
-                  .read<AddTransactionBloc>()
-                  .add(AmountChange(amount: value)),
+              controller: CustomTextController(
+                  text: "\$${addTransactionState.transactionUIO.amount}"),
+              onChanged: (value) {
+                context
+                    .read<AddTransactionBloc>()
+                    .add(AmountChange(amount: value));
+              },
               enabled: addTransactionState is! AddTransactionLoading,
             ),
             const SizedBox(
