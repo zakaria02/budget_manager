@@ -10,7 +10,7 @@ part 'add_transaction_state.dart';
 
 TransactionUIO initTransactionUIO = TransactionUIO(
   type: "income",
-  amount: "0.0",
+  amount: "0",
   category: CategoryUIO(
     id: "1",
     name: "Travel",
@@ -78,8 +78,20 @@ class AddTransactionBloc
   void _amountChange(AmountChange event, Emitter<AddTransactionState> emit) {
     if (state is AddTransactionInitial) {
       emit((state as AddTransactionInitial)
-          .copyWith(amount: event.amount.isNotEmpty ? event.amount : "0.0"));
+          .copyWith(amount: _formatAmount(event.amount)));
     }
+  }
+
+  String _formatAmount(String amount) {
+    String value = amount.trim().replaceAll('\$', '');
+    if (value.isNotEmpty) {
+      if (value != "0" && value.substring(0, 1) == "0") {
+        return value.substring(1);
+      } else {
+        return value.replaceAll(',', '.');
+      }
+    }
+    return "0";
   }
 
   Future _saveAddTransaction(
