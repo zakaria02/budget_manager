@@ -6,6 +6,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'feature/bloc/app_bloc_observer.dart';
 import 'feature/bloc/auth/auth_bloc.dart';
 import 'business/auth/repository/auth_repository.dart';
+import 'add_transaction_page/business/business.dart';
 import 'home_page/feature/bloc/navigation/navigation_cubit.dart';
 import 'home_page/home_page.dart';
 import 'add_transaction_page/feature/add_tansaction_page_view.dart';
@@ -27,6 +28,9 @@ class BudgetApp extends StatelessWidget {
   final AuthenticationRepositoryImpl _authenticationRepositoryImpl =
       AuthenticationRepositoryImpl();
 
+  final AddTransactionRepository _addTransactionRepository =
+      AddTransactionRepositoryImpl();
+
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
@@ -42,7 +46,10 @@ class BudgetApp extends StatelessWidget {
           create: (context) => HomePageNavCubit(),
         ),
         BlocProvider<AddTransactionBloc>(
-          create: (context) => AddTransactionBloc(),
+          create: (context) => AddTransactionBloc(
+            _authenticationRepositoryImpl,
+            _addTransactionRepository,
+          ),
         ),
         BlocProvider<BottomSheetCubit>(
           create: (context) => BottomSheetCubit(),

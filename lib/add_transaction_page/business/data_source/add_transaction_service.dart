@@ -6,12 +6,12 @@ import '../dtos/transaction_dto.dart';
 
 class AddTransactionService {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
-  final AuthenticationRepository _authenticationRepository =
-      AuthenticationRepositoryImpl();
 
-  Future<FirebaseResponse> addTransaction(TransactionDTO transactionDTO) async {
+  Future<FirebaseResponse> addTransaction(
+      AuthenticationRepository authenticationRepository,
+      TransactionDTO transactionDTO) async {
     final UserDto currentUser =
-        await _authenticationRepository.getCurrentUser().first;
+        await authenticationRepository.getCurrentUser().first;
 
     return await _firestore
         .collection("utilisateurs")
@@ -27,7 +27,7 @@ class AddTransactionService {
           success: true, message: "Transaction added succefully");
     }).catchError((error) {
       return FirebaseResponse(
-        success: true,
+        success: false,
         message: error.toString(),
       );
     }).timeout(
