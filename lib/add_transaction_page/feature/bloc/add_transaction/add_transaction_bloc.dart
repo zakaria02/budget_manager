@@ -1,4 +1,4 @@
-import '../../../../business/auth/repository/auth_repository.dart';
+import '../../../business/di/add_transaction_module.dart';
 import '../../../../utils/model/firebase_response.dart';
 import '../../../business/repository/add_transaction_repository.dart';
 import '../../model/model.dart';
@@ -24,11 +24,7 @@ TransactionUIO initTransactionUIO = TransactionUIO(
 
 class AddTransactionBloc
     extends Bloc<AddTransactionEvent, AddTransactionState> {
-  final AuthenticationRepository _authenticationRepository;
-  final AddTransactionRepository _addTransactionRepository;
-  AddTransactionBloc(
-      this._authenticationRepository, this._addTransactionRepository)
-      : super(AddTransactionInitial(initTransactionUIO)) {
+  AddTransactionBloc() : super(AddTransactionInitial(initTransactionUIO)) {
     on<TypeChange>(_typeChange);
     on<AmountChange>(_amountChange);
     on<DateChange>(_dateChange);
@@ -36,8 +32,7 @@ class AddTransactionBloc
     on<RepeatingChange>(_repeatingChange);
     on<NotesChange>(_notesChange);
     on<AddTransactionSave>((event, emit) async {
-      await _saveAddTransaction(
-          event, emit, _authenticationRepository, _addTransactionRepository);
+      await _saveAddTransaction(event, emit);
     });
     on<AddTransactionStart>(
       (event, emit) {
@@ -99,14 +94,14 @@ class AddTransactionBloc
   }
 
   Future _saveAddTransaction(
-      AddTransactionSave event,
-      Emitter<AddTransactionState> emit,
-      AuthenticationRepository authenticationRepository,
-      AddTransactionRepository addTransactionRepository) async {
+    AddTransactionSave event,
+    Emitter<AddTransactionState> emit,
+  ) async {
+    AddTransactionRepository addTransactionRepository =
+        AddTransactionModule().get<AddTransactionRepository>();
     emit(AddTransactionLoading(state.transactionUIO));
-    FirebaseResponse firebaseResponse =
-        await addTransactionRepository.addTransaction(
-            authenticationRepository, state.transactionUIO.toTransctionDTO());
+    FirebaseResponse firebaseResponse = await addTransactionRepository
+        .addTransaction(state.transactionUIO.toTransctionDTO());
     if (firebaseResponse.success) {
       emit(AddTransactionSuccess(
           state.transactionUIO, firebaseResponse.message));
