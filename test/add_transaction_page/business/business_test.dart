@@ -15,7 +15,7 @@ class AddTransactionRepositoryMock extends Mock
     implements AddTransactionRepository {}
 
 void main() {
-  late AuthenticationRepository authenticationRepository;
+  //late AuthenticationRepository authenticationRepository;
   late AddTransactionServiceMock addTransactionServiceMock;
   //late AddTransactionRepositoryMock addTransactionRepositoryMock;
   late TransactionDTO transactionDTO;
@@ -24,15 +24,14 @@ void main() {
   setUp(() {
     addTransactionServiceMock = AddTransactionServiceMock();
     //addTransactionRepositoryMock = AddTransactionRepositoryMock();
-    authenticationRepository = AuthenticationRepositoryMock();
+    //authenticationRepository = AuthenticationRepositoryMock();
     transactionDTO = transactionDtoMock;
   });
 
   test(
     "Add Transaction Service",
     (() async {
-      response = await addTransactionServiceMock.addTransaction(
-          authenticationRepository, transactionDTO);
+      response = await addTransactionServiceMock.addTransaction(transactionDTO);
       expect(response != null, true);
       expect(response?.success == successResponse.success, true);
       expect(response?.message == successResponse.message, true);

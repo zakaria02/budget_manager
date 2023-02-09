@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
+import '../../../business/auth/di/auth_module.dart';
 import '../../../business/auth/business_auth.dart';
 import '../../../utils/model/firebase_response.dart';
 import '../dtos/transaction_dto.dart';
@@ -7,9 +8,9 @@ import '../dtos/transaction_dto.dart';
 class AddTransactionService {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
-  Future<FirebaseResponse> addTransaction(
-      AuthenticationRepository authenticationRepository,
-      TransactionDTO transactionDTO) async {
+  Future<FirebaseResponse> addTransaction(TransactionDTO transactionDTO) async {
+    AuthenticationRepository authenticationRepository =
+        AuthModule().get<AuthenticationRepository>();
     final UserDto currentUser =
         await authenticationRepository.getCurrentUser().first;
 

@@ -1,3 +1,4 @@
+import 'package:budget_manager/business/auth/di/auth_module.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -8,9 +9,11 @@ part 'auth_state.dart';
 
 class AuthenticationBloc
     extends Bloc<AuthenticationEvent, AuthenticationState> {
-  final AuthenticationRepository _authenticationRepository;
+  //di
+  final AuthenticationRepository _authenticationRepository =
+      AuthModule().get<AuthenticationRepository>();
 
-  AuthenticationBloc(this._authenticationRepository)
+  AuthenticationBloc()
       // Initialize Bloc with init State
       : super(AuthenticationInitial()) {
     on<AuthenticationEvent>((event, emit) async {

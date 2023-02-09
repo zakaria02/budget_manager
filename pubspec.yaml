@@ -49,6 +49,7 @@ dependencies:
   cloud_firestore: ^4.3.1
   bloc_test: ^9.1.1
   mocktail: ^0.3.0
+  flutter_simple_dependency_injection: ^2.0.0
 
 dev_dependencies:
   flutter_test:

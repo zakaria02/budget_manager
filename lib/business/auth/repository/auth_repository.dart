@@ -1,11 +1,11 @@
+import '.././../../business/auth/di/auth_module.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 import '../dtos/user_dto.dart';
 import '../data_source/auth_data_service.dart';
 
 class AuthenticationRepositoryImpl implements AuthenticationRepository {
-  // Remember to add DI for this one
-  AuthenticationService service = AuthenticationService();
+  AuthenticationService service = AuthModule().get<AuthenticationService>();
 
   @override
   Stream<UserDto> getCurrentUser() {
