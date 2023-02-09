@@ -1,16 +1,13 @@
-import 'package:budget_manager/business/di/main_module.dart';
+import 'package:add_transaction/add_transaction.dart';
+import 'package:feature/bloc/app_bloc_observer.dart';
+import 'package:feature/bloc/auth/auth_bloc.dart';
+import 'package:business/di/main_module.dart';
+import 'package:home/home.dart';
 
 import 'firebase_options.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:firebase_core/firebase_core.dart';
-
-import 'feature/bloc/app_bloc_observer.dart';
-import 'feature/bloc/auth/auth_bloc.dart';
-import 'home_page/feature/bloc/navigation/navigation_cubit.dart';
-import 'home_page/home_page.dart';
-import 'add_transaction_page/feature/add_tansaction_page_view.dart';
-import 'add_transaction_page/feature/bloc/bloc.dart';
 
 void main() async {
   //Init DI

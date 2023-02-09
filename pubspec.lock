@@ -15,6 +15,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.12"
+  add_transaction:
+    dependency: "direct main"
+    description:
+      path: "packages/add_transaction"
+      relative: true
+    source: path
+    version: "0.0.1"
   analyzer:
     dependency: transitive
     description:
@@ -71,6 +78,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.1.0"
+  business:
+    dependency: "direct main"
+    description:
+      path: "packages/business"
+      relative: true
+    source: path
+    version: "0.0.1"
   characters:
     dependency: transitive
     description:
@@ -113,6 +127,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.16.0"
+  common:
+    dependency: "direct main"
+    description:
+      path: "packages/common"
+      relative: true
+    source: path
+    version: "0.0.1"
   convert:
     dependency: transitive
     description:
@@ -169,6 +190,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.3.1"
+  feature:
+    dependency: "direct main"
+    description:
+      path: "packages/feature"
+      relative: true
+    source: path
+    version: "0.0.1"
   ffi:
     dependency: transitive
     description:
@@ -299,6 +327,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "4.0.1"
+  home:
+    dependency: "direct main"
+    description:
+      path: "packages/home"
+      relative: true
+    source: path
+    version: "0.0.1"
   http:
     dependency: transitive
     description:
@@ -638,6 +673,20 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.4.16"
+  transaction_details:
+    dependency: "direct main"
+    description:
+      path: "packages/transaction_details"
+      relative: true
+    source: path
+    version: "0.0.1"
+  transaction_summary:
+    dependency: "direct main"
+    description:
+      path: "packages/transaction_summary"
+      relative: true
+    source: path
+    version: "0.0.1"
   typed_data:
     dependency: transitive
     description:

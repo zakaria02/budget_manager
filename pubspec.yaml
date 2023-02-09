@@ -50,6 +50,21 @@ dependencies:
   bloc_test: ^9.1.1
   flutter_simple_dependency_injection: ^2.0.0
 
+  common:
+    path: packages/common
+  feature:
+    path: packages/feature
+  business:
+    path: packages/business
+  add_transaction:
+    path: packages/add_transaction
+  home:
+    path: packages/home
+  transaction_details:
+    path: packages/transaction_details
+  transaction_summary:
+    path: packages/transaction_summary
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
