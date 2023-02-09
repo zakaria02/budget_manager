@@ -389,7 +389,7 @@ packages:
     source: hosted
     version: "1.0.4"
   mocktail:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: mocktail
       url: "https://pub.dartlang.org"
