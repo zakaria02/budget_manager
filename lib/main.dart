@@ -1,7 +1,6 @@
 import 'package:add_transaction/add_transaction.dart';
-import 'package:feature/bloc/app_bloc_observer.dart';
-import 'package:feature/bloc/auth/auth_bloc.dart';
-import 'package:business/di/main_module.dart';
+import 'package:feature/feature.dart';
+import 'package:business/business.dart';
 import 'package:home/home.dart';
 
 import 'firebase_options.dart';
@@ -12,12 +11,14 @@ import 'package:firebase_core/firebase_core.dart';
 void main() async {
   //Init DI
   MainModule();
+  //Init Firebase
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
   // This will let us observe any change that is happening in the Bloc
   Bloc.observer = AppBlocObserver();
+  //Launch app
   runApp(const BudgetApp());
 }
 
