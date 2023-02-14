@@ -1,10 +1,11 @@
+import 'package:category/category.dart';
+
 import '../../../feature/model/mapper/transaction_uio_dto_mappers.dart';
-import 'category_dto.dart';
 
 class TransactionDTO {
   TransactionType type;
   double amount;
-  CategoryDTO category;
+  CategoryDTO? category;
   DateTime date;
   String accountType;
   RepeatingType repeatingType;
@@ -23,7 +24,7 @@ class TransactionDTO {
   Map<String, dynamic> toJson() => {
         "transaction_type": type.toStringType(),
         "amount": amount,
-        "category": category.toJson(),
+        "category": category!.toJson(),
         "date": date,
         "account_type": accountType,
         "repeating_type": repeatingType.toStringRepeating(),

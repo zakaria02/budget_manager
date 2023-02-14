@@ -1,4 +1,5 @@
 import 'package:add_transaction/add_transaction.dart';
+import 'package:category/category.dart';
 import 'package:feature/feature.dart';
 import 'package:business/business.dart';
 import 'package:home/home.dart';
@@ -45,6 +46,9 @@ class BudgetApp extends StatelessWidget {
         BlocProvider<BottomSheetCubit>(
           create: (context) => BottomSheetCubit(),
         ),
+        BlocProvider<CategoriesListBloc>(
+          create: (context) => CategoriesListBloc(),
+        ),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
@@ -55,6 +59,8 @@ class BudgetApp extends StatelessWidget {
         routes: {
           "/": (context) => const HomePageView(),
           "/addTransaction": (context) => const AddTransactionView(),
+          "/addTransOrSettings/categories_list": (context) =>
+              const CategoriesListView()
         },
       ),
     );

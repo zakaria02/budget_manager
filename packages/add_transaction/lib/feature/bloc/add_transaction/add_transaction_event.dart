@@ -14,6 +14,11 @@ class TypeChange extends AddTransactionEvent {
   TypeChange({required this.type});
 }
 
+class CategoryChange extends AddTransactionEvent {
+  final CategoryUIO category;
+  CategoryChange({required this.category});
+}
+
 class AmountChange extends AddTransactionEvent {
   final String amount;
   AmountChange({required this.amount});

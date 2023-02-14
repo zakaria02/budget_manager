@@ -7,7 +7,8 @@ import 'dart:async' as _i5;
 
 import 'package:add_transaction/business/data_source/add_transaction_service.dart'
     as _i4;
-import 'package:add_transaction/business/dto/category_dto.dart' as _i3;
+import '../../../category/lib/add_category/business/dto/category_dto.dart'
+    as _i3;
 import 'package:add_transaction/business/dto/transaction_dto.dart' as _i6;
 import 'package:add_transaction/business/repository/add_transaction_repository.dart'
     as _i7;

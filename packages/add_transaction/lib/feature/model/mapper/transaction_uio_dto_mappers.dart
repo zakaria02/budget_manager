@@ -1,7 +1,6 @@
-import '../../../business/dto/category_dto.dart';
-import '../category_uio.dart';
 import '../transaction_uio.dart';
 import '../../../business/dto/transaction_dto.dart';
+import 'package:category/category.dart';
 
 // Months display on add transaction page
 List<String> _months = [
@@ -26,7 +25,7 @@ extension TransactionDtoMappers on TransactionDTO {
     return TransactionUIO(
       type: type.toStringType(),
       amount: amount.toString(),
-      category: category.toCategoryUIO(),
+      category: category?.toCategoryUIO(),
       date: date.toStringDate(),
       accountType: accountType,
       repeatingType: repeatingType.toStringRepeating(),
@@ -45,16 +44,6 @@ extension TransactionTypeMappers on TransactionType {
       default:
         return "Unkown value";
     }
-  }
-}
-
-extension CategoryDtoMappers on CategoryDTO {
-  CategoryUIO toCategoryUIO() {
-    return CategoryUIO(
-      id: id,
-      name: name,
-      icon: icon,
-    );
   }
 }
 
@@ -96,7 +85,7 @@ extension TransactionUIOMappers on TransactionUIO {
     return TransactionDTO(
       type: type.toTransactionType(),
       amount: amount.toStringAmount(),
-      category: category.toCategoryDto(),
+      category: category?.toCategoryDto(),
       date: date.toDateTime(),
       accountType: accountType,
       repeatingType: repeatingType.toRepeatingType(),
@@ -154,15 +143,5 @@ extension TransactionStringsMappers on String {
     } on Exception catch (e) {
       throw Exception(e);
     }
-  }
-}
-
-extension CategoryUIOMappers on CategoryUIO {
-  CategoryDTO toCategoryDto() {
-    return CategoryDTO(
-      id: id,
-      name: name,
-      icon: icon,
-    );
   }
 }

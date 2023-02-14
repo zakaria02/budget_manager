@@ -1,6 +1,7 @@
 import 'package:add_transaction/add_transaction.dart';
+import 'package:category/category.dart';
 
-CategoryDTO validCategoryDto = CategoryDTO(id: "1", name: "travel");
+CategoryDTO validCategoryDto = CategoryDTO(name: "travel", icon: "");
 
 TransactionDTO validTransactionDto = TransactionDTO(
   type: TransactionType.income,

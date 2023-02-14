@@ -22,7 +22,7 @@ class AddTransactionAppBar extends StatelessWidget {
         amountD == null ||
         amountD <= 0) {
       message = "Selected amount is incorrect";
-    } else if (transactionUIO.category.name.isEmpty) {
+    } else if (transactionUIO.category == null) {
       message = "No category selected";
     } else if (transactionUIO.date.isEmpty) {
       message = "No date selected";

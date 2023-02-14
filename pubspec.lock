@@ -99,6 +99,13 @@ packages:
       relative: true
     source: path
     version: "0.0.1"
+  category:
+    dependency: "direct main"
+    description:
+      path: "packages/category"
+      relative: true
+    source: path
+    version: "0.0.1"
   characters:
     dependency: transitive
     description:
