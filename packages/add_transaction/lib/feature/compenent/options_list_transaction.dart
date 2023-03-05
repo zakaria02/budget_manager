@@ -1,12 +1,13 @@
+import 'package:category/categories_list/feature/feature.dart';
 import 'package:common/common.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../bloc/bloc.dart';
 import '../model/mapper/transaction_uio_dto_mappers.dart';
 import 'package:flutter/material.dart';
-import '../../business/dto/dto.dart';
 import 'bottom_sheet/add_transaction_bottom_sheet.dart';
 import 'option_transaction.dart';
+import '../utils/const.dart';
 
 class OptionsListTransaction extends StatelessWidget {
   const OptionsListTransaction({super.key});
@@ -21,9 +22,15 @@ class OptionsListTransaction extends StatelessWidget {
             children: [
               OptionTransaction(
                 title: "Category",
-                data: addTransactionState.transactionUIO.category.name,
-                activeData: true,
-                onPress: () {},
+                data: addTransactionState.transactionUIO.category?.name ??
+                    "Choose >",
+                activeData: addTransactionState.transactionUIO.category != null,
+                onPress: () {
+                  Navigator.of(context)
+                      .pushNamed("/addTransOrSettings/categories_list");
+                  BlocProvider.of<CategoriesListBloc>(context)
+                      .add(CategoriesFetchData());
+                },
                 enabled: addTransactionState is! AddTransactionLoading,
               ),
               OptionTransaction(
@@ -46,7 +53,10 @@ class OptionsListTransaction extends StatelessWidget {
                 onPress: () {
                   context.read<BottomSheetCubit>().openAccountBottomSheet(
                         "Account",
-                        accountTypes,
+                        [
+                          "Savings",
+                          "Account 1",
+                        ],
                         BottomSheetType.accountType,
                       );
                   showListModalBottomSheet(context);

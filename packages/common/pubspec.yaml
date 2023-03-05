@@ -12,6 +12,11 @@ dependencies:
   flutter:
     sdk: flutter
   google_fonts: ^4.0.1
+  unicons: ^2.1.0 # icon's link : https://iconscout.com/unicons/explore/line
+
+  category:
+    path: ../category
+  
 
 dev_dependencies:
   flutter_test:

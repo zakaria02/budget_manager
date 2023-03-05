@@ -13,9 +13,12 @@ dependencies:
     sdk: flutter
   firebase_auth: ^4.2.5
   flutter_simple_dependency_injection: ^2.0.0
+  cloud_firestore: ^4.3.1
 
   add_transaction:
     path: ../add_transaction
+  common:
+    path: ../common
 
 dev_dependencies:
   flutter_test:

@@ -10,3 +10,4 @@ const Color incomeColor = Color(0xFF88D49B);
 const Color expensesColor = Color(0xFFEE8880);
 const Color errorColor = Colors.redAccent;
 const Color successColor = Colors.green;
+const Color buttonColor = Color(0xFFDA749D);

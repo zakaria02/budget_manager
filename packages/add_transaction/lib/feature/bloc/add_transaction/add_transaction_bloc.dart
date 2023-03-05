@@ -1,3 +1,4 @@
+import 'package:category/category.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:common/common.dart';
@@ -12,10 +13,7 @@ part 'add_transaction_state.dart';
 TransactionUIO initTransactionUIO = TransactionUIO(
   type: "income",
   amount: "0",
-  category: CategoryUIO(
-    id: "1",
-    name: "Travel",
-  ),
+  category: null,
   date: DateTime.now().toStringDate(),
   accountType: "Savings",
   repeatingType: "No",
@@ -26,6 +24,7 @@ class AddTransactionBloc
     extends Bloc<AddTransactionEvent, AddTransactionState> {
   AddTransactionBloc() : super(AddTransactionInitial(initTransactionUIO)) {
     on<TypeChange>(_typeChange);
+    on<CategoryChange>(_categoryChange);
     on<AmountChange>(_amountChange);
     on<DateChange>(_dateChange);
     on<AccountChange>(_accountChange);
@@ -44,6 +43,13 @@ class AddTransactionBloc
   void _typeChange(TypeChange event, Emitter<AddTransactionState> emit) {
     if (state is AddTransactionInitial) {
       emit((state as AddTransactionInitial).copyWith(type: event.type));
+    }
+  }
+
+  void _categoryChange(
+      CategoryChange event, Emitter<AddTransactionState> emit) {
+    if (state is AddTransactionInitial) {
+      emit((state as AddTransactionInitial).copyWith(category: event.category));
     }
   }
 

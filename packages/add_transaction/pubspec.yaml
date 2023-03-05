@@ -24,6 +24,8 @@ dependencies:
     path: ../business
   feature:
     path: ../feature
+  category:
+    path: ../category
 
 dev_dependencies:
   flutter_test:

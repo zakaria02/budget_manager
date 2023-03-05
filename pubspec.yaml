@@ -52,6 +52,8 @@ dependencies:
     path: packages/transaction_details
   transaction_summary:
     path: packages/transaction_summary
+  category:
+    path: packages/category
 
 dev_dependencies:
   flutter_test:

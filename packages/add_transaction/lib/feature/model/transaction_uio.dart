@@ -1,9 +1,9 @@
-import 'category_uio.dart';
+import 'package:category/category.dart';
 
 class TransactionUIO {
   String type;
   String amount;
-  CategoryUIO category;
+  CategoryUIO? category;
   String date;
   String accountType;
   String repeatingType;
